@@ -83,7 +83,7 @@ function AboutSection() {
               Certifications
             </TabButton> */}
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             {TAB_DATA.find((el) => el.id === tab)?.content}
           </div>
         </div>
