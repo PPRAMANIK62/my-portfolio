@@ -16,7 +16,7 @@ function EmailSection() {
       message: e.target.message.value,
     };
     const JSONdata = JSON.stringify(data);
-    const endPoint = "http://localhost:3000/api/send";
+    const endPoint = "/api/send";
 
     const options = {
       method: "POST",
@@ -26,13 +26,18 @@ function EmailSection() {
       body: JSONdata,
     };
 
-    const res = await fetch(endPoint, options);
-    const resData = await res.json();
-    console.log(resData);
-    if (res.status === 200) {
-      console.log("Message Sent");
-      setEmailSubmitted(true);
-    }
+    const response = await fetch(endPoint, options)
+      .then((res) => res.json({ success: true, message: "Message sent" }))
+      .then((data) => {
+        console.log(data);
+        if (data.status === 200) {
+          console.log("Message Sent");
+          setEmailSubmitted(true);
+        } else {
+          console.log("Message not sent. Status:", data.status);
+        }
+      })
+      .catch((error) => console.error(`ERROR: ${error}`));
   };
 
   return (
