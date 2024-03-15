@@ -24,14 +24,11 @@ function Navbar() {
   const [navBarOpen, setNavBarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-black bg-opacity-90">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-8 py-8 md:px-12">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
+    <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-black bg-opacity-90">
+      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-8 py-8 md:px-12">
+        <a href="#" className="text-2xl md:text-5xl text-white font-semibold">
           LOGO
-        </Link>
+        </a>
         <div className="mobile-menu block md:hidden">
           {!navBarOpen ? (
             <button

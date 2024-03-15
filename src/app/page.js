@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection.jsx";
+import AchievementSection from "@/components/AchievementSection.jsx";
 import EmailSection from "@/components/EmailSection.jsx";
 import Footer from "@/components/Footer.jsx";
 import HeroSection from "@/components/HeroSection.jsx";
@@ -11,11 +12,13 @@ export default function Home() {
       <Navbar />
       <div className="container mt-24 mx-auto px-8 py-3">
         <HeroSection />
+        <AchievementSection id={"about"} />
         <AboutSection />
+        <AchievementSection id={"projects"} />
         <ProjectsSection />
         <EmailSection />
-        <Footer />
       </div>
+      <Footer />
     </main>
   );
 }
