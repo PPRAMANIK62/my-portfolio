@@ -1,6 +1,6 @@
 import Navlink from "./Navlink.jsx";
 
-function MenuOverlay({ links, navBarOpen }) {
+function MenuOverlay({ links, navBarOpen, setNavBarOpen }) {
   return (
     <ul
       className={`flex flex-col pb-4 items-center origin-top duration-300 ${
@@ -9,7 +9,11 @@ function MenuOverlay({ links, navBarOpen }) {
     >
       {links.map((link, index) => (
         <li key={index}>
-          <Navlink href={link.path} title={link.title} />
+          <Navlink
+            href={link.path}
+            title={link.title}
+            setNavBarOpen={setNavBarOpen}
+          />
         </li>
       ))}
     </ul>

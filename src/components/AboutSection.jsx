@@ -1,4 +1,6 @@
 "use client";
+import Reveal from "@/app/utils/Reveal.jsx";
+import RevealImage from "@/app/utils/RevealImage.jsx";
 import Image from "next/image.js";
 import { useState, useTransition } from "react";
 import aboutImage from "../../public/images/about-image.png";
@@ -46,46 +48,57 @@ function AboutSection() {
   return (
     <section>
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src={aboutImage} alt="about-image" height={500} width={500} />
+        <RevealImage>
+          <Image src={aboutImage} alt="about-image" height={500} width={500} />
+        </RevealImage>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base md:text-lg">
-            I am a Full Stack Web Developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with Javascript, React, Redux, Node.js, Express, MongoDB,
-            HTML, CSS, Git and Github. I am a quick learner and I am always
-            looking to expand my knowledge and skill set. I can work as a team
-            and I am excited to work with others to create amazing applications.
-          </p>
-          <div className="flex flex-row justify-start mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              Education
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("experience")}
-              active={tab === "experience"}
-            >
-              Experience
-            </TabButton>
-            {/* <TabButton
+          <Reveal>
+            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          </Reveal>
+          <Reveal>
+            <p className="text-base md:text-lg">
+              I am a Full Stack Web Developer with a passion for creating
+              interactive and responsive web applications. I have experience
+              working with Javascript, React, Redux, Node.js, Express, MongoDB,
+              HTML, CSS, Git and Github. I am a quick learner and I am always
+              looking to expand my knowledge and skill set. I can work as a team
+              and I am excited to work with others to create amazing
+              applications.
+            </p>
+          </Reveal>
+          <Reveal>
+            <div className="flex flex-row justify-start mt-8">
+              <TabButton
+                selectTab={() => handleTabChange("skills")}
+                active={tab === "skills"}
+              >
+                Skills
+              </TabButton>
+              <TabButton
+                selectTab={() => handleTabChange("education")}
+                active={tab === "education"}
+              >
+                Education
+              </TabButton>
+              <TabButton
+                selectTab={() => handleTabChange("experience")}
+                active={tab === "experience"}
+              >
+                Experience
+              </TabButton>
+              {/* <TabButton
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
               Certifications
             </TabButton> */}
-          </div>
-          <div className="mt-4">
-            {TAB_DATA.find((el) => el.id === tab)?.content}
-          </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="mt-4">
+              {TAB_DATA.find((el) => el.id === tab)?.content}
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
